@@ -3,7 +3,6 @@ orbs:
   docker: circleci/docker@2.0.1
 
 jobs:
-
   build-and-deploy:
     executor: docker/docker
     steps:
@@ -19,14 +18,11 @@ jobs:
           tag: 'latest'
 
 workflows:
-
   build-and-deploy:
-
     jobs:
-
       - build-and-deploy:
           context:
-            - thinx-docker-repo
+            - dockerhub
           filters:
             branches:
               only:
