@@ -2,24 +2,9 @@ version: 2.1
 orbs:
   docker: circleci/docker@2.0.1
 
-jobs:
-  build-and-deploy:
-    executor: docker/docker
-    steps:
-      - setup_remote_docker
-      - checkout
-      - docker/check
-      - docker/publish:
-          image: suculent/alpine-gulp
-          update-description: true
-
 workflows:
   build-and-deploy:
     jobs:
-      - build-and-deploy:
-          context:
-            - dockerhub
-          filters:
-            branches:
-              only:
-                - master
+      - docker/publish:
+          image: suculent/alpine-gulp
+          update-description: true
