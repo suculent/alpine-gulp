@@ -9,14 +9,9 @@ jobs:
       - setup_remote_docker
       - checkout
       - docker/check
-      - docker/build:
+      - docker/publish:
           image: suculent/alpine-gulp
-          dockerfile: Dockerfile
-          tag: 'latest'
-      - docker/push:
-          digest-path: /tmp/digest.txt
-          image: suculent/alpine-gulp
-          tag: 'latest'
+          update-description: true
 
 workflows:
   build-and-deploy:
