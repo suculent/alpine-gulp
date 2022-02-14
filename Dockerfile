@@ -1,7 +1,7 @@
-FROM node:11-alpine
+FROM node:14-alpine
 
 LABEL cloud.thinx.maintainer="Matej Sychra" \
-      cloud.thinx.version="0.2.0"
+      cloud.thinx.version="0.4.0"
 
 USER root
 
